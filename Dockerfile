@@ -39,12 +39,13 @@ ENV HOME=/home/vhserver
 # Download and verify LinuxGSM.
 # Then use it to install valheim server (vhserver).
 RUN mkdir -p /tmp/vhserver/linuxgsm && \
+    export LINUX_GSM_VERSION="v21.2.2" && \
     export LINUX_GSM_CHECKSUM="0a45c88218d87b4e6f18c2cc95d14a6dbedba2ff0cf1497d4fcd3b7851870dc7" && \
     wget \
         --show-progress \
         --progress=bar:force:noscroll \
         -O /tmp/vhserver/linuxgsm.tar.gz \
-        https://github.com/GameServerManagers/LinuxGSM/archive/v21.2.2.tar.gz && \
+        https://github.com/GameServerManagers/LinuxGSM/archive/${LINUX_GSM_VERSION}.tar.gz && \
     echo "${LINUX_GSM_CHECKSUM}  /tmp/vhserver/linuxgsm.tar.gz" | sha256sum -c && \
     tar -C /tmp/vhserver/linuxgsm -xf /tmp/vhserver/linuxgsm.tar.gz --strip-components 1 && \
     mkdir linuxgsm && \
