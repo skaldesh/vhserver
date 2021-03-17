@@ -6,7 +6,7 @@ docker build -t linuxgames/vhserver:<tag> .
 ### Run
 ```bash
 docker run \
-    --daemon \
+    -d \
     -p 2456:2456/udp \
     -p 2457:2457/udp \
     -v "/path/to/vhserver.cfg:/home/vhserver/linuxgsm/lgsm/config-lgsm/vhserver/vhserver.cfg" \
