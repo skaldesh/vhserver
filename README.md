@@ -20,8 +20,7 @@ You can find parameters to configure the vhserver here (inside the Container):
 Apply them to the `vhserver.cfg` file that gets mounted.
 
 ### Copy Game Data
-Remove all other default server files there, first.  
-Then, copy for example from a Windows machine this folder:  
+Copy for example from a Windows machine this folder:  
 `C:\Users\(Your PC Username)\AppData\LocalLow\IronGate\Valheim\worlds`  
 and mount it in the container (`vhdatadir` in the Run section above).
 

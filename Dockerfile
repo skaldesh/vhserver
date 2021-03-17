@@ -31,7 +31,12 @@ RUN dpkg --add-architecture i386 && \
     apt -y clean
 
 # Create vhserver user.
-RUN useradd -ms /bin/bash vhserver
+COPY entrypoint.sh entrypoint.sh
+RUN useradd -ms /bin/bash vhserver && \
+    chmod +x entrypoint.sh && \
+    chown vhserver entrypoint.sh && \
+    chgrp vhserver entrypoint.sh && \
+    mv entrypoint.sh /home/vhserver/entrypoint.sh
 USER vhserver
 WORKDIR /home/vhserver
 ENV HOME=/home/vhserver
@@ -60,4 +65,4 @@ RUN mkdir -p /tmp/vhserver/linuxgsm && \
 EXPOSE 2456/udp 2457/udp
 
 # Set valheim server as entrypoint.
-ENTRYPOINT ["./linuxgsm/vhserver"]
+ENTRYPOINT ["/home/vhserver/entrypoint.sh"]
