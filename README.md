@@ -22,7 +22,7 @@ Apply them to the `vhserver.cfg` file that gets mounted.
 ### Copy Game Data
 Copy for example from a Windows machine this folder:  
 `C:\Users\(Your PC Username)\AppData\LocalLow\IronGate\Valheim\worlds`  
-and mount it in the container (`vhdatadir` in the Run section above).
+and copy it into the `vhdatadir` folder that gets mounted.
 
 ### Links
 - Install instructions: https://linuxgsm.com/lgsm/vhserver/
